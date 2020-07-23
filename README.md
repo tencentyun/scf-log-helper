@@ -17,10 +17,10 @@ eggLogger.set('console', new ConsoleTransport({
 }));
 
 const winstonLogger = winston.createLogger({
-	level: 'info',
-	format: winston.format.json(),
-	defaultMeta: { service: 'user-service' },
-	transports: [],
+  level: 'info',
+  format: winston.format.json(),
+  defaultMeta: { service: 'user-service' },
+  transports: [],
 })
 const log4jsLogger = log4js.getLogger()
 log4jsLogger.level = "debug";
@@ -33,18 +33,18 @@ winstonLogger.add(
 
 exports.main_handler = async (event, context, callback) => {
 	
-	logHelper.init()
+  logHelper.init()
 
   //--- winston ---
-	winstonLogger.info('abc in winston')
+  winstonLogger.info('abc in winston')
   winstonLogger.warn('warning in winston')
   
   //--- log4js ---
-	log4jsLogger.trace('Entering cheese testing in log4js')
-	log4jsLogger.debug('Got cheese. in log4js')
-	log4jsLogger.info('Cheese is Comté.  in log4js')
-	log4jsLogger.warn('Cheese is quite smelly. in log4js')
-	log4jsLogger.error('Cheese is too ripe! in log4js')
+  log4jsLogger.trace('Entering cheese testing in log4js')
+  log4jsLogger.debug('Got cheese. in log4js')
+  log4jsLogger.info('Cheese is Comté.  in log4js')
+  log4jsLogger.warn('Cheese is quite smelly. in log4js')
+  log4jsLogger.error('Cheese is too ripe! in log4js')
   log4jsLogger.fatal('Cheese was breeding ground for listeria. in log4js')
 
   //--- eggLogger ---
@@ -54,8 +54,8 @@ exports.main_handler = async (event, context, callback) => {
   eggLogger.error(new Error('error foo'));
 
   //--- console logger ---
-	console.log('abc in console')
-	return 'hello world'
+  console.log('abc in console')
+  return 'hello world'
 }
 
 ```
